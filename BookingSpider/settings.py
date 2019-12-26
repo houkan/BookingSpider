@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for myscrapy project
+# Scrapy settings for BookingSpider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'myscrapy'
+BOT_NAME = 'BookingSpider'
 
-SPIDER_MODULES = ['myscrapy.spiders']
-NEWSPIDER_MODULE = 'myscrapy.spiders'
+SPIDER_MODULES = ['BookingSpider.spiders']
+NEWSPIDER_MODULE = 'BookingSpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'myscrapy (+http://www.yourdomain.com)'
+#USER_AGENT = 'BookingSpider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'myscrapy.middlewares.MyscrapySpiderMiddleware': 543,
+#    'BookingSpider.middlewares.BookingSpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'myscrapy.middlewares.MyscrapyDownloaderMiddleware': 543,
+#    'BookingSpider.middlewares.BookingSpiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 # ITEM_PIPELINES = {
-#    'myscrapy.pipelines.MyscrapyPipeline': 300,
+#    'BookingSpider.pipelines.BookingSpiderPipeline': 300,
 # }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -122,9 +122,9 @@ MYSQL_DATABASE = 'booking'
 
 #注，这个方法默认是被注释掉的
 ITEM_PIPELINES = {
-    # 'myscrapy.pipelines.ContinentMysqlTwistedPipeline': 1,
-    # 'myscrapy.pipelines.CountryMysqlTwistedPipeline': 2,
-    'myscrapy.pipelines.CityMysqlTwistedPipeline': 3,
-    # 'myscrapy.pipelines.JsonWithEncodingPipeline': 2,
+    # 'BookingSpider.pipelines.ContinentMysqlTwistedPipeline': 1,
+    # 'BookingSpider.pipelines.CountryMysqlTwistedPipeline': 2,
+    'BookingSpider.pipelines.CityMysqlTwistedPipeline': 3,
+    # 'BookingSpider.pipelines.JsonWithEncodingPipeline': 2,
 }
 

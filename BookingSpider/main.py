@@ -3,7 +3,7 @@
 # @Time     : 2019-12-22 23:25
 # @File     : main.py
 # @Software : PyCharm
-# @Project  : myscrapy
+# @Project  : BookingSpider
 # @User     : kan
 # ----------------------------
 
