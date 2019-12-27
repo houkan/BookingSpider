@@ -115,8 +115,8 @@ FEED_EXPORT_ENCODING = 'utf-8'
 # mysql setting
 MYSQL_HOST = '127.0.0.1'
 MYSQL_PORT = 3306
-MYSQL_USERNAME = 'root'
-MYSQL_PASSWORD = 'root'
+MYSQL_USERNAME = 'booking'
+MYSQL_PASSWORD = 'booking'
 MYSQL_DATABASE = 'booking'
 
 

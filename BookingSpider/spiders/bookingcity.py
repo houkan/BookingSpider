@@ -16,8 +16,8 @@ def urls():
 
     config={
         "host":"localhost",
-        "user":"root",
-        "password":"root",
+        "user":"booking",
+        "password":"booking",
         "database":"booking",
         "charset":"utf8"
     }
