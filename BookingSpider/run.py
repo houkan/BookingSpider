@@ -8,4 +8,5 @@
 # ----------------------------
 
 from scrapy.cmdline import execute
-execute(['scrapy','crawl','bookingcity'])
+execute(['scrapy','crawl','booking'])
+# execute(['scrapy','crawl','bookingcity'])
