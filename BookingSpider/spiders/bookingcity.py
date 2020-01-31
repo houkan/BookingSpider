@@ -44,7 +44,7 @@ class BookingCitySpider(scrapy.Spider):
     url = urls()
 
     for item in urls():
-        url = (item['country_url'])
+        url = (item['enurl'])
 
         start_urls.append('https://www.booking.com' + url)
 

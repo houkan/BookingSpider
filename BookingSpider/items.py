@@ -32,17 +32,16 @@ import scrapy
 
 class ItemBookingContinentSpider(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
+
 
     continent_id = scrapy.Field()
     continent_name = scrapy.Field()
-    # country_general_id = scrapy.Field()
-    # country_name = scrapy.Field()
-    # country_url = scrapy.Field()
+
+
 
 class ItemBookingCountrySpider(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
+
 
     country_continent_id = scrapy.Field()
     country_continent_name = scrapy.Field()
@@ -52,15 +51,76 @@ class ItemBookingCountrySpider(scrapy.Item):
 
 class ItemBookingCitySpider(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
 
-    # continent_id = scrapy.Field()
-    # continent_name = scrapy.Field()
-    # country_general_id = scrapy.Field()
-    # country_name = scrapy.Field()
-    # country_url = scrapy.Field()
+
     city_general_id = scrapy.Field()
     city_name = scrapy.Field()
     city_url = scrapy.Field()
+
+
+
+class ItemBookingHotelSpider(scrapy.Item):
+    # define the fields for your item here like:
+
+
+    country_name = scrapy.Field()
+    country_url = scrapy.Field()
+    province_name = scrapy.Field()
+    province_url = scrapy.Field()
+    city_name = scrapy.Field()
+    city_url = scrapy.Field()
+    hotel_level = scrapy.Field()
+    hotel_general_id = scrapy.Field()
+    hotel_name = scrapy.Field()
+    hotel_url = scrapy.Field()
+
+class ItemBookingHoteldetailSpider(scrapy.Item):
+    # define the fields for your item here like:
+
+
+    country_name = scrapy.Field()
+    country_url = scrapy.Field()
+    province_name = scrapy.Field()
+    province_url = scrapy.Field()
+    city_name = scrapy.Field()
+    city_url = scrapy.Field()
+    type = scrapy.Field()
+    name = scrapy.Field()
+    url = scrapy.Field()
+    level = scrapy.Field()
+    address = scrapy.Field()
+    logo = scrapy.Field()
+    images = scrapy.Field()
+    brief = scrapy.Field()
+    thumbs_up = scrapy.Field()
+    lat = scrapy.Field()
+    lon = scrapy.Field()
+    comment = scrapy.Field()
+    review = scrapy.Field()
+
+
+class ItemBookingHoteldetailjsSpider(scrapy.Item):
+    # define the fields for your item here like:
+
+
+    country_name = scrapy.Field()
+    country_url = scrapy.Field()
+    province_name = scrapy.Field()
+    province_url = scrapy.Field()
+    city_name = scrapy.Field()
+    city_url = scrapy.Field()
+    type = scrapy.Field()
+    name = scrapy.Field()
+    url = scrapy.Field()
+    level = scrapy.Field()
+    address = scrapy.Field()
+    logo = scrapy.Field()
+    images = scrapy.Field()
+    brief = scrapy.Field()
+    thumbs_up = scrapy.Field()
+    lat = scrapy.Field()
+    lon = scrapy.Field()
+    comment = scrapy.Field()
+    review = scrapy.Field()
 
 

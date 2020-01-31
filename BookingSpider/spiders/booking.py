@@ -17,7 +17,7 @@ from ..items import ItemBookingCountrySpider
 class BookingSpider(scrapy.Spider):
     name = 'booking'
     allowed_domains = ['www.booking.com']
-    start_urls = ['https://www.booking.com/destination.zh-cn.html']
+    start_urls = ['https://www.booking.com/destination.html']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
 
 

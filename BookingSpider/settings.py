@@ -102,7 +102,7 @@ CONCURRENT_REQUESTS_PER_IP = 500
 
 
 # LOG_LEVEL = 'ERROR'
-DOWNLOAD_TIMEOUT = 10
+DOWNLOAD_TIMEOUT = 90
 # RETRY_ENABLED = False
 
 
@@ -124,7 +124,9 @@ MYSQL_DATABASE = 'booking'
 ITEM_PIPELINES = {
     # 'BookingSpider.pipelines.ContinentMysqlTwistedPipeline': 1,
     # 'BookingSpider.pipelines.CountryMysqlTwistedPipeline': 2,
-    'BookingSpider.pipelines.CityMysqlTwistedPipeline': 3,
+    # 'BookingSpider.pipelines.CityMysqlTwistedPipeline': 3,
+    # 'BookingSpider.pipelines.HotelMysqlTwistedPipeline': 4,
+    # 'BookingSpider.pipelines.HoteldetailMysqlTwistedPipeline': 4,
+    'BookingSpider.pipelines.HoteldetailjsMysqlTwistedPipeline': 5,
     # 'BookingSpider.pipelines.JsonWithEncodingPipeline': 2,
 }
-
