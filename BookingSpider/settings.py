@@ -125,8 +125,8 @@ ITEM_PIPELINES = {
     # 'BookingSpider.pipelines.ContinentMysqlTwistedPipeline': 1,
     # 'BookingSpider.pipelines.CountryMysqlTwistedPipeline': 2,
     # 'BookingSpider.pipelines.CityMysqlTwistedPipeline': 3,
-    # 'BookingSpider.pipelines.HotelMysqlTwistedPipeline': 4,
+    'BookingSpider.pipelines.HotelMysqlTwistedPipeline': 4,
     # 'BookingSpider.pipelines.HoteldetailMysqlTwistedPipeline': 4,
-    'BookingSpider.pipelines.HoteldetailjsMysqlTwistedPipeline': 5,
+    # 'BookingSpider.pipelines.HoteldetailjsMysqlTwistedPipeline': 5,
     # 'BookingSpider.pipelines.JsonWithEncodingPipeline': 2,
 }
