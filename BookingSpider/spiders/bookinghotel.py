@@ -32,7 +32,7 @@ def urls():
     }
     db = pymysql.connect(**config)
     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM city_full where continent_id = 1 and country_sn = 'nl'"
+        sql = "SELECT * FROM city_full where country_sn = 'nl'"
         cursor.execute(sql)
         res = cursor.fetchall()
         print(res)
@@ -83,12 +83,17 @@ class BookingHotelSpider(scrapy.Spider):
                 city_url = response.xpath("//div[@class='dest-sitemap__landing']//a//@href").extract()[0]
 
                 # city_name = response.xpath("//li[2]//h3[1]/text()").extract()[0].strip()
-                hotel_level = response.xpath("(//h4[contains(@class,'sublist-title')])["+str(order_id)+"]/text()").extract()[0].strip()
+                # hotel_level = response.xpath("(//h4[contains(@class,'sublist-title')])["+str(order_id)+"]").extract()[0].strip()
 
-                order_name = response.xpath("(//h4[contains(@class,'sublist-title')])["+str(order_id)+"]/text()").extract()[0].strip()
+                order_name = response.xpath("(//h4[contains(@class,'sublist-title')])["+str(order_id)+"]").extract()[0].strip()
+
+                hotel_level = re.sub(r'<[^>]+>', '', order_name)
+
                 print(order_id, order_name)
 
+
                 hotel_id = 1
+                landmark_id = 1
 
                 try:
                     while 1:
@@ -100,7 +105,10 @@ class BookingHotelSpider(scrapy.Spider):
                         hotel_name = response.xpath("//div[2]/ul[1]/li[2]/ul[1]/li[" + str(order_id) + "]/div[1]/ul[1]/li[" + str(hotel_id) + "]/a[1]/text()").extract()[0].strip()
                         hotel_url = response.xpath("//div[2]/ul[1]/li[2]/ul[1]/li[" + str(order_id) + "]/div[1]/ul[1]/li[" + str(hotel_id) + "]//a[1]//@href").extract()[0]
 
-                        print(order_id, order_name, hotel_general_id, hotel_name, hotel_url)
+                        # landmark_name = response.xpath("//div[2]/ul[1]/li[3]/ul[1]/li[" + str(order_id) + "]/div[1]/ul[1]/li[" + str(hotel_id) + "]/a[1]/text()").extract()[0].strip()
+                        # landmark_url = response.xpath("//div[2]/ul[1]/li[3]/ul[1]/li[" + str(order_id) + "]/div[1]/ul[1]/li[" + str(hotel_id) + "]/a[1]//@href").extract()[0]
+
+                        # print(order_id, order_name, hotel_general_id, hotel_name, hotel_url)
 
                         # booking_city_item["continent_id"] = continent_id
                         # booking_city_item["continent_name"] = continent_name
@@ -119,7 +127,7 @@ class BookingHotelSpider(scrapy.Spider):
                         booking_hotel_item["hotel_url"] = hotel_url
                         yield booking_hotel_item
 
-                        print(hotel_name + "酒店抓取完毕")
+                        # print(hotel_name + "酒店抓取完毕")
                         hotel_id += 1
 
                 except Exception as e:
