@@ -32,7 +32,7 @@ def urls():
     }
     db = pymysql.connect(**config)
     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM city_full where country_sn = 'nl'"
+        sql = "SELECT * FROM city_full"
         cursor.execute(sql)
         res = cursor.fetchall()
         print(res)
@@ -53,7 +53,7 @@ class BookingHotelSpider(scrapy.Spider):
     url = urls()
 
     for item in urls():
-        url = (item['url'])
+        url = (item['cnurl'])
 
         start_urls.append('https://www.booking.com' + url)
 

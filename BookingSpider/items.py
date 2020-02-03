@@ -122,5 +122,11 @@ class ItemBookingHoteldetailjsSpider(scrapy.Item):
     lon = scrapy.Field()
     comment = scrapy.Field()
     review = scrapy.Field()
+    hotel_id = scrapy.Field()
+    city_id = scrapy.Field()
+    dest_name = scrapy.Field()
+    region_name = scrapy.Field()
+    category = scrapy.Field()
+
 
 

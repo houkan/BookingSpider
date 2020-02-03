@@ -348,9 +348,14 @@ class HoteldetailjsMysqlTwistedPipeline(object):
                     lat,
                     lon,
                     comment,
-                    review
+                    review,
+                    hotel_id,
+                    city_id,
+                    dest_name,
+                    region_name,
+                    category
                     )
-                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                     """
         cursor.execute(insert_sql, (
             item['country_name'],
@@ -371,6 +376,11 @@ class HoteldetailjsMysqlTwistedPipeline(object):
             item['lat'],
             item['lon'],
             item['comment'],
-            item['review']
+            item['review'],
+            item['hotel_id'],
+            item['city_id'],
+            item['dest_name'],
+            item['region_name'],
+            item['category']
         ))
 
