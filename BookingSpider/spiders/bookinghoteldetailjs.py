@@ -45,7 +45,7 @@ def urls():
     }
     db = pymysql.connect(**config)
     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM hotel_full where city_url = '/city/nl/amsterdam.html' and  hotel_level = '';"
+        sql = "SELECT * FROM hotel_full where concat('https://www.booking.com',hotel_url) not in(select url from hoteldetailjs);"
         cursor.execute(sql)
         res = cursor.fetchall()
         # print(res)
