@@ -45,7 +45,7 @@ def urls():
     }
     db = pymysql.connect(**config)
     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM hotel_full where concat('https://www.booking.com',hotel_url) not in(select url from hoteldetailjs);"
+        sql = "SELECT * FROM hotel_full where city_url = '/city/gb/london.html' and concat('https://www.booking.com',hotel_url) not in(select url from hoteldetailjs);"
         cursor.execute(sql)
         res = cursor.fetchall()
         # print(res)
@@ -141,8 +141,19 @@ class BookingHoteldetailjsSpider(scrapy.Spider):
         thumbs_up = ""
         lat = data["hasMap"].split('center=')[1].split('&')[0].split(',')[0]
         lon = data["hasMap"].split('center=')[1].split('&')[0].split(',')[1]
-        comment = data["aggregateRating"]["reviewCount"]
-        review = data["aggregateRating"]["ratingValue"]
+
+        try:
+            comment = data["aggregateRating"]["reviewCount"]
+        except Exception as e:
+            comment = ""
+            print('crawl', e)
+
+        try:
+            review = data["aggregateRating"]["ratingValue"]
+        except Exception as e:
+            review = ""
+            print('crawl', e)
+
 
 
         # print(imagestr)
