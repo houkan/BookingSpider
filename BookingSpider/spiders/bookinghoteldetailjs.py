@@ -7,14 +7,6 @@
 # @User     : kan
 # ----------------------------
 
-# -*- coding: utf-8 -*-
-# @Author   : Ken Hou
-# @Time     : 2020-01-30 19:56
-# @File     : bookinghoteldetail.py
-# @Software : PyCharm
-# @Project  : BookingSpider
-# @User     : kan
-# ----------------------------
 
 
 # -*- coding: utf-8 -*-
@@ -45,7 +37,7 @@ def urls():
     }
     db = pymysql.connect(**config)
     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM hotel_full where city_url = '/city/gb/london.html' and concat('https://www.booking.com',hotel_url) not in(select url from hoteldetailjs);"
+        sql = "SELECT * FROM hotel_full where country_url = '/country/at.html' and concat('https://www.booking.com',hotel_url) not in(select url from hoteldetailjs);"
         cursor.execute(sql)
         res = cursor.fetchall()
         # print(res)
@@ -73,7 +65,7 @@ class BookingHoteldetailjsSpider(scrapy.Spider):
 
     # print(start_urls)
 
-    print(len(start_urls))
+    # print(len(start_urls))
 
 
 

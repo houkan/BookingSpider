@@ -38,7 +38,7 @@ def urls():
         sql = "SELECT * FROM hotellist where country_name = '荷兰';"
         cursor.execute(sql)
         res = cursor.fetchall()
-        print(res)
+        # print(res)
         cursor.close()
     db.close()
     return res
@@ -61,9 +61,9 @@ class BookingHoteldetailSpider(scrapy.Spider):
 
         start_urls.append('https://www.booking.com' + url)
 
-    print(start_urls)
-
-    print(len(start_urls))
+    # print(start_urls)
+    #
+    # print(len(start_urls))
 
 
 
