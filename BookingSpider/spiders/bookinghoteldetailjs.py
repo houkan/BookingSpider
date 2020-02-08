@@ -19,12 +19,20 @@ import pymysql.cursors
 import json
 import js2xml
 
-from lxml import etree
+import sys,os
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append("../")
+
+# from lxml import etree
+from lxml import html
+etree = html.etree
+
 from scrapy.http import Request
 from urllib import parse
 from scrapy.loader import ItemLoader
 
-from ..items import ItemBookingHoteldetailjsSpider
+from BookingSpider.items import ItemBookingHoteldetailjsSpider
 
 def urls():
 
@@ -53,8 +61,12 @@ class BookingHoteldetailjsSpider(scrapy.Spider):
     allowed_domains = ['www.booking.com']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
+    # start_urls = []
 
-    start_urls = []
+    # redis_key = "booking:start_urls"
+
+
+
 
     url = urls()
 

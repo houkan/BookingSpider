@@ -2,6 +2,11 @@
 import scrapy
 import re
 
+import sys,os
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append("../")
+
 
 import pymysql
 import pymysql.cursors
@@ -9,17 +14,18 @@ import pymysql.cursors
 from scrapy.http import Request
 from urllib import parse
 from scrapy.loader import ItemLoader
+from scrapy_redis.spiders import RedisSpider
 
-from ..items import ItemBookingContinentSpider
-from ..items import ItemBookingCountrySpider
+from BookingSpider.items import ItemBookingContinentSpider
+from BookingSpider.items import ItemBookingCountrySpider
 
 
-class BookingSpider(scrapy.Spider):
+class BookingSpider(RedisSpider):
     name = 'booking'
     allowed_domains = ['www.booking.com']
-    start_urls = ['https://www.booking.com/destination.html']
+    # start_urls = ['https://www.booking.com/destination.html']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
-
+    redis_key = "booking:start_urls"
 
 
     def parse(self, response):

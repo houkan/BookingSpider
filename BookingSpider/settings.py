@@ -95,8 +95,8 @@ ROBOTSTXT_OBEY = False
 DOWNLOAD_DELAY = 0.25
 
 # 多线程
-CONCURRENT_REQUESTS = 500
-CONCURRENT_REQUESTS_PER_DOMAIN = 500
+CONCURRENT_REQUESTS = 50
+CONCURRENT_REQUESTS_PER_DOMAIN = 50
 # CONCURRENT_REQUESTS_PER_IP =100
 
 
@@ -127,6 +127,16 @@ ITEM_PIPELINES = {
     # 'BookingSpider.pipelines.CityMysqlTwistedPipeline': 3,
     # 'BookingSpider.pipelines.HotelMysqlTwistedPipeline': 4,
     # 'BookingSpider.pipelines.HoteldetailMysqlTwistedPipeline': 4,
-    'BookingSpider.pipelines.HoteldetailjsMysqlTwistedPipeline': 5,
+    # 'BookingSpider.pipelines.HoteldetailjsMysqlTwistedPipeline': 5,
     # 'BookingSpider.pipelines.JsonWithEncodingPipeline': 2,
+
+    # Store scraped item in redis for post-processing. 分布式redispipeline
+    'scrapy_redis.pipelines.RedisPipeline': 300,
 }
+
+
+""" scrapy-redis配置 """
+# Enables scheduling storing requests queue in redis.
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# Ensure all spiders share same duplicates filter through redis.
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"

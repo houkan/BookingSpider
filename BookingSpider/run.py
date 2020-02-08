@@ -10,9 +10,9 @@
 from scrapy.cmdline import execute
 
 
-# execute(['scrapy','crawl','booking'])
+execute(['scrapy','crawl','booking'])
 # execute(['scrapy','crawl','bookingcity'])
 # execute(['scrapy','crawl','bookinghotel'])
 # execute(['scrapy','crawl','bookinghoteldetail'])
-execute(['scrapy','crawl','bookinghoteldetailjs'])
+# execute(['scrapy','crawl','bookinghoteldetailjs'])
 
