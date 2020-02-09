@@ -119,6 +119,16 @@ MYSQL_USERNAME = 'booking'
 MYSQL_PASSWORD = 'booking'
 MYSQL_DATABASE = 'booking'
 
+#- 客户端redis:
+REDIS_URL = 'redis://auth:chmmwjq@192.168.192.168:6379'
+
+
+#- 指定存储数据的redis:
+REDIS_HOST = '192.168.192.168'
+REDIS_PORT = 6379
+REDIS_ENCODING = 'utf-8'
+REDIS_PARAMS = {'password':'chmmwjq'}
+
 
 #注，这个方法默认是被注释掉的
 ITEM_PIPELINES = {
@@ -140,3 +150,5 @@ ITEM_PIPELINES = {
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # Ensure all spiders share same duplicates filter through redis.
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+
+

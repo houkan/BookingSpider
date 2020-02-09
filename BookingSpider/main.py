@@ -15,7 +15,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
-execute (["scrapy","runspider","booking.py"])
+execute (["scrapy","runspider","spiders/booking.py"])
 # execute (["scrapy","crawl","bookingcity"])
 # execute (["scrapy","crawl","bookinghotel"])
 # execute (["scrapy","crawl","bookinghoteldetail"])

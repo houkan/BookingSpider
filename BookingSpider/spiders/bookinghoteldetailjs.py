@@ -63,17 +63,17 @@ class BookingHoteldetailjsSpider(scrapy.Spider):
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
     # start_urls = []
 
-    # redis_key = "booking:start_urls"
+    redis_key = "bookinghoteldetailjs:start_urls"
 
 
 
 
-    url = urls()
-
-    for item in urls():
-        url = (item['hotel_url'])
-
-        start_urls.append('https://www.booking.com' + url)
+    # url = urls()
+    #
+    # for item in urls():
+    #     url = (item['hotel_url'])
+    #
+    #     start_urls.append('https://www.booking.com' + url)
 
     # print(start_urls)
 

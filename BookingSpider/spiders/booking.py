@@ -4,9 +4,15 @@ import re
 
 import sys,os
 
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-sys.path.append("../")
 
+
+# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+# sys.path.append("../")
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append('/')
+sys.path.append('/BookingSpider')
+sys.path.append('/BookingSpider/spiders')
 
 import pymysql
 import pymysql.cursors
