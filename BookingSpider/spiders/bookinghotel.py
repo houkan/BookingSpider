@@ -24,7 +24,7 @@ from ..items import ItemBookingHotelSpider
 def urls():
 
     config={
-        "host":"localhost",
+        "host":"192.168.192.66",
         "user":"booking",
         "password":"booking",
         "database":"booking",

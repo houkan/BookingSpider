@@ -14,3 +14,14 @@ COPY . /BookingSpider/
 #WORKDIR /BookingSpider/spiders
 
 CMD scrapy runspider spiders/booking.py
+
+
+#FROM python:3.7
+#ENV PATH /usr/local/bin:$PATH
+#ENV PYTHONPATH "${PYTONPATH}:/"
+#ENV PYTHONPATH "${PYTONPATH}:/BookingSpider"
+#ADD . /BookingSpider
+#WORKDIR /BookingSpider
+#RUN pip3 install -r requirements.txt -i https://pypi.douban.com/simple
+#CMD scrapy runspider spiders/booking.py
+#
