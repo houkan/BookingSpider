@@ -10,43 +10,46 @@ from scrapy.http import Request
 from urllib import parse
 from scrapy.loader import ItemLoader
 
-from ..items import ItemBookingCitySpider
+from scrapy_redis.spiders import RedisSpider
+from BookingSpider.items import ItemBookingCitySpider
 
-def urls():
+# def urls():
+#
+#     config={
+#         "host":"192.168.192.66",
+#         "user":"booking",
+#         "password":"booking",
+#         "database":"booking",
+#         "charset":"utf8"
+#     }
+#     db = pymysql.connect(**config)
+#     with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
+#         sql = "SELECT * FROM country where continent_id = 1"
+#         cursor.execute(sql)
+#         res = cursor.fetchall()
+#         # print(res)
+#         cursor.close()
+#     db.close()
+#     return res
 
-    config={
-        "host":"192.168.192.66",
-        "user":"booking",
-        "password":"booking",
-        "database":"booking",
-        "charset":"utf8"
-    }
-    db = pymysql.connect(**config)
-    with db.cursor(cursor=pymysql.cursors.DictCursor) as cursor:  #获取数据库连接的对象
-        sql = "SELECT * FROM country where continent_id = 1"
-        cursor.execute(sql)
-        res = cursor.fetchall()
-        # print(res)
-        cursor.close()
-    db.close()
-    return res
 
 
-
-class BookingCitySpider(scrapy.Spider):
+class BookingCitySpider(RedisSpider):
     name = 'bookingcity'
     allowed_domains = ['www.booking.com']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
     # start_urls = ['https://www.booking.com/destination/country/dk.zh-cn.html']
+    redis_key = "bookingcity:start_urls"
 
-    start_urls = []
 
-    url = urls()
-
-    for item in urls():
-        url = (item['enurl'])
-
-        start_urls.append('https://www.booking.com' + url)
+    # start_urls = []
+    #
+    # url = urls()
+    #
+    # for item in urls():
+    #     url = (item['enurl'])
+    #
+    #     start_urls.append('https://www.booking.com' + url)
 
     # print(start_urls)
     #

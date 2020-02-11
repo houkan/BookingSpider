@@ -119,8 +119,6 @@ MYSQL_USERNAME = 'booking'
 MYSQL_PASSWORD = 'booking'
 MYSQL_DATABASE = 'booking'
 
-#- 客户端redis:
-REDIS_URL = 'redis://auth:chmmwjq@192.168.192.168:6379'
 
 #
 # #- 指定存储数据的redis:
@@ -145,10 +143,18 @@ ITEM_PIPELINES = {
 }
 
 
-""" scrapy-redis配置 """
+###### scrapy-redis settings start ######
+# https://github.com/rmax/scrapy-redis
 # Enables scheduling storing requests queue in redis.
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
 # Ensure all spiders share same duplicates filter through redis.
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
+# Specify the full Redis URL for connecting (optional).
+# If set, this takes precedence over the REDIS_HOST and REDIS_PORT settings.
+REDIS_URL = 'redis://auth:chmmwjq@192.168.192.168:6379'
+
+# Don't cleanup redis queues, allows to pause/resume crawls.
+SCHEDULER_PERSIST = True
 

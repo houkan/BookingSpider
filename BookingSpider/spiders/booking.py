@@ -52,7 +52,7 @@ class BookingSpider(RedisSpider):
 
                 booking_continent_item["continent_id"] = continent_id
                 booking_continent_item["continent_name"] = continent_name
-                yield booking_continent_item
+                # yield booking_continent_item
 
                 country_id = 1
 
