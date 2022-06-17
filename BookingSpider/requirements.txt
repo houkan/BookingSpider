@@ -21,7 +21,7 @@ PyHamcrest==2.0.0
 PyMySQL==0.9.3
 pyOpenSSL==19.1.0
 queuelib==1.5.0
-Scrapy==1.8.0
+Scrapy==2.6.1
 service-identity==18.1.0
 six==1.14.0
 slimit==0.8.1
